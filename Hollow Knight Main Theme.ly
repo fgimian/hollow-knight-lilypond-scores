@@ -22,7 +22,7 @@ global = {
 right = \relative c'' {
   \global
   \bar ".|:"
-  \ottava #1 c'4-1\p (c-2 d8-3 ef-4
+  \ottava #1 c'4-1 (c-2 d8-3 ef-4
   d2.-3)
   c8-2 (g-1 af4-4 g8-3 f-2
   g2.-1)
@@ -31,7 +31,7 @@ right = \relative c'' {
   g8-5 (ef-3 d-2 c-1 bf4-2
   c2.-3)
   R2.
-  \ottava #0 c,4-1\mp (c-2 d8-3 ef-4
+  \ottava #0 c,4-1 (c-2 d8-3 ef-4
   d2.-3)
   c8-2 (g-1 af4-4 g8-3 f-2
   g2.-1)
@@ -39,7 +39,7 @@ right = \relative c'' {
   f2-3) r8 (g16-4 af-5
   g4-4 ef4.-2 bf8-1
   c4-3 bf4.-2 f8-1
-  g2.-2\p)
+  g2.-2)
   R2.
   R2.
   r2 r8 b8-2 (
@@ -79,15 +79,20 @@ left = \relative c' {
   bf8_5 (d_3 f_1 bf_3 d4_2)
 }
 
+dynamics = {
+  s2.*9\p
+  s2.*8\mp
+  s2.*8\p
+}
+
 \book {
   \paper {
-    % Set the minimum space between systems.
-    system-system-spacing =
-    #`((minimum-distance . 16))
+    % Fill the score to the bottom of the page.
+    ragged-last-bottom = ##f
 
     % Customise the header style.
     bookTitleMarkup = \markup {
-      \vspace #2.5
+      \vspace #2
       \column {
         % Space between the title and subtitle.
         \override #'(baseline-skip . 3.5)
@@ -123,19 +128,19 @@ left = \relative c' {
       % Set the minimum distance between staffs within a system.
       \context {
         \Score
-        \override StaffGrouper.staff-staff-spacing.minimum-distance = #11.5
+        \override StaffGrouper.staff-staff-spacing.minimum-distance = #12.5
       }
+
+      % Increase the padding within bars to widen them.
+      \override Score.NonMusicalPaperColumn.padding = #1
+
       % Increase the space below the tempo marking.
       \override Score.MetronomeMark.padding = #5
-      % Increase the padding within bars to widen them.
-      \override Score.NonMusicalPaperColumn.padding = #1.2
     }
 
     \new PianoStaff <<
-      \new Staff \right {
-        % Center dynamics markings by moving them further away from the staff.
-        \override DynamicLineSpanner.staff-padding = #3.5
-      }
+      \new Staff \right
+      \new Dynamics \dynamics
       \new Staff \left
     >>
 
