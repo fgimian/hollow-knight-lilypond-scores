@@ -107,6 +107,13 @@ left = \relative c' {
 }
 
 dynamics = {
+  s2.*16\p
+  s2.*2\<
+  s2.\!\mp\>
+  s2.*10\!\p
+  s2.*1\<
+  s2.*1\!\mp\>
+  s2.*13\!\p
 }
 
 pages = 2
