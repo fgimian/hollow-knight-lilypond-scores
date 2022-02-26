@@ -2,7 +2,7 @@
 \language "english"
 
 \header {
-  title = "Hollow Knight Main Theme"
+  title = "Hollow Knight"
   subtitle = "You are the Vessel. You are the Hollow Knight."
   composer = "Christopher Larkin"
   arranger = "Fotis Gimian"
