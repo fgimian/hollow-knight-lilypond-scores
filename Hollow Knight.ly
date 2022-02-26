@@ -87,6 +87,10 @@ dynamics = {
 
 \book {
   \paper {
+    % Configure score pages and system spacing.
+    page-count = 1
+    system-count = 5
+
     % Fill the score to the bottom of the page.
     ragged-last-bottom = ##f
 
@@ -130,9 +134,6 @@ dynamics = {
         \Score
         \override StaffGrouper.staff-staff-spacing.minimum-distance = #12.5
       }
-
-      % Increase the padding within bars to widen them.
-      \override Score.NonMusicalPaperColumn.padding = #1
 
       % Increase the space below the tempo marking.
       \override Score.MetronomeMark.padding = #5
