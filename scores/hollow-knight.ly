@@ -6,17 +6,12 @@
   subtitle = "You are the Vessel. You are the Hollow Knight."
   composer = "Christopher Larkin"
   arranger = "Fotis Gimian"
-  % Remove default LilyPond tagline.
-  tagline = ##f
 }
 
 global = {
   \key c \minor
   \time 3/4
   \tempo "Adagio" 4 = 55
-
-  % Ensure that octave lines show the va characters.
-  \set Staff.ottavationMarkups = #ottavation-ordinals
 }
 
 right = \relative c'' {
@@ -85,68 +80,8 @@ dynamics = {
   s2.*8\p
 }
 
-\book {
-  \paper {
-    % Configure score pages and system spacing.
-    page-count = 1
-    system-count = 5
+pages = 1
+systems = 5
+staffDistance = #12.5
 
-    % Fill the score to the bottom of the page.
-    ragged-last-bottom = ##f
-
-    % Customise the header style.
-    bookTitleMarkup = \markup {
-      \vspace #2
-      \column {
-        % Space between the title and subtitle.
-        \override #'(baseline-skip . 3.5)
-        \column {
-          \fill-line {
-            \huge \larger \larger \larger
-            \fromproperty #'header:title
-          }
-          \fill-line {
-            \large \fromproperty #'header:subtitle
-          }
-        }
-        \vspace #0.7
-        % Space between the composer and arranger.
-        \override #'(baseline-skip . 2.5)
-        \column {
-          \fill-line {
-            \null
-            \smaller \concat { "Composed by " \fromproperty #'header:composer }
-          }
-          \fill-line {
-            \null
-            \smaller \concat { "Arranged by " \fromproperty #'header:arranger }
-          }
-        }
-        \vspace #0.5
-      }
-    }
-  }
-
-  \score {
-    \layout {
-      % Set the minimum distance between staffs within a system.
-      \context {
-        \Score
-        \override StaffGrouper.staff-staff-spacing.minimum-distance = #12.5
-      }
-
-      % Increase the space below the tempo marking.
-      \override Score.MetronomeMark.padding = #5
-    }
-
-    \new PianoStaff <<
-      \new Staff \right
-      \new Dynamics \dynamics
-      \new Staff \left
-    >>
-
-    \midi {
-      % Ensure a MIDI file is exported.
-    }
-  }
-}
+\include "layout.lyi"
