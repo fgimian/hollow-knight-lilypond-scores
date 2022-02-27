@@ -11,7 +11,7 @@
 global = {
   \key c \minor
   \time 6/8
-  \tempo "Adagio" 8 = 130
+  \tempo "Adagio" 8 = 135
 }
 
 right = \relative c'' {
