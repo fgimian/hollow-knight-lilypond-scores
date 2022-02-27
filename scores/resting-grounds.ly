@@ -117,7 +117,7 @@ dynamics = {
 }
 
 pages = 2
-systems = 12
-staffDistance = #11.5
+systems = 11
+staffDistance = #12.5
 
 \include "layout.lyi"
