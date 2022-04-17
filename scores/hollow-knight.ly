@@ -31,7 +31,7 @@ right = \relative c'' {
     c8-2 (g-1 af4-4 g8-3 f-2
     g2.-1)
     c4-3 (c-2 d8-1 ef-2
-    f2-3) r8 (g16-4 af-5
+    f2-3) r8 g16-4 (af-5
     g4-4 ef4.-2 bf8-1
     c4-3 bf4.-2 f8-1
     g2.-2)
